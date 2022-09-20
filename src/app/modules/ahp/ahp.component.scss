@@ -1,0 +1,29 @@
+// logo
+.link-logo{
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+// navbar
+.mat-sidenav-container {
+    height: 100%;
+}
+.mat-sidenav {
+  width: 15%;
+  min-width: 260px;
+}
+.title{
+  padding: 8px 16px 0 16px !important;
+}
+// for same to sidenav
+.mat-expansion-panel-header{
+  padding: 0 16px !important;
+  font-size: 16px !important;
+}
+.mat-expansion-panel{
+  box-shadow: none !important;
+}
+.mat-expansion-panel .list-item{
+  max-width: 80%;
+  overflow-x: hidden;
+}

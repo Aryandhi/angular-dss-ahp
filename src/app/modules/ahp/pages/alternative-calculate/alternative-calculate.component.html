@@ -1,0 +1,44 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span class="m-r-a" fxLayoutAlign="center center">
+            <button mat-icon-button aria-label="Back"title="Back" (click)="goBack()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <span
+            class="title"
+            *ngIf="criteriaName"
+            title="Criteria - {{criteriaName | titlecase}}">Criteria - {{criteriaName | titlecase}}</span>
+        </span>
+        <span fxLayoutAlign="end center">
+            <button mat-raised-button color="primary" (click)="calculate()" [disabled]="pairForm.invalid">Calculate</button>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-card>
+    <button mat-stroked-button *ngIf="calculated" [routerLink]="['../../result', paramId]">View Result</button>
+    <form [formGroup]="pairForm">
+       <table>
+           <tr class="m-t-20" *ngFor="let pair of pairwise; let i = index" [formGroupName]="i">
+               <td>
+                   <label for="" title="{{ pair[0].desc }}">{{ pair[0].name | titlecase }}</label>
+               </td>
+               <td class="radio-control">
+                   <mat-radio-group formControlName="value" fxLayoutGap="20px">
+                       <div
+                       *ngFor="let item of [-9,-8,-7,-6,-5,-4,-3,-2,1,2,3,4,5,6,7,8,9];let i = index"
+                       class="radioSize{{item < 0 ? item * - 1 : item}}">
+                        <mat-radio-button
+                        [value]="item"
+                        title="{{ item < 0 ? pairTitle[item * -1 - 1]: pairTitle[item - 1] }}">
+                            {{ item < 0 ? item * - 1 : item }}
+                        </mat-radio-button>
+                       </div>
+                   </mat-radio-group>
+               </td>
+               <td>
+                   <label for="" title="{{ pair[1].desc }}">{{ pair[1].name | titlecase  }}</label>
+               </td>
+           </tr>
+       </table>
+   </form>
+</mat-card>

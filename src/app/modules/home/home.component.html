@@ -1,0 +1,37 @@
+<div class="h-min-100v">
+    <!-- toolbar -->
+    <mat-toolbar color="primary" class="sticky mat-elevation-z2">
+        <span class="m-r-a">Decision Support System</span>
+        <span fxLayoutAlign="end center">
+            <!-- <button mat-button routerLink="/register" *ngIf="!(user$ | async)">Sign up</button>
+            <button mat-raised-button routerLink="/login" *ngIf="!(user$ | async)">Log in</button> -->
+            <!-- if login -->
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu" *ngIf="(user$ | async)">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLinkActive="d-none" routerLink="/user" *ngIf="user$ | async as user">
+                    <span>{{ user.email }}</span>
+                </button>
+                <button mat-menu-item routerLinkActive="d-none" routerLink="/login">
+                    <span>Switch User</span>
+                </button>
+                <button mat-menu-item routerLinkActive="d-none" routerLink="/ahp/0/my-list">
+                    <span>AHP</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item routerLinkActive="d-none" (click)="logOut()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Log out</span>
+                </button>
+            </mat-menu>
+        </span>
+    </mat-toolbar>
+    <!-- content -->
+    <div class="header-section" fxLayoutAlign="center center" fxLayout="column"fxLayoutGap="20px">
+        <div class="text-center">
+            <h1 class="mat-display-2">Sistem Pendukung Keputusan dengan metode AHP</h1>
+        </div>
+        <button class="action-button" mat-raised-button color="primary" routerLink="/ahp/create">Start</button>
+    </div>
+</div>
