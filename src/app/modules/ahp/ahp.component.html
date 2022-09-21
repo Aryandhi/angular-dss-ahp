@@ -63,7 +63,7 @@
                     <mat-icon>add</mat-icon>
                     <span> Create new</span>
                 </button>
-                <button mat-button routerLink="/login" *ngIf="!(user$ | async)">Log in</button>
+                <!-- <button mat-button routerLink="/login" *ngIf="!(user$ | async)">Log in</button> -->
                 <!-- if login -->
                 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu" *ngIf="(user$ | async)">
                     <mat-icon>more_vert</mat-icon>
